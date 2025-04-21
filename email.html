@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>H4CK3R - Email Breach</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+    }
+    .terminal {
+      background: #000;
+      border: 1px solid #0f0;
+      padding: 20px;
+      width: 600px;
+      margin: 50px auto;
+      height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      box-shadow: 0 0 15px #0f0;
+    }
+    input, button {
+      display: block;
+      margin: 10px auto;
+      width: 400px;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #0f0;
+      color: #0f0;
+      font-family: monospace;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">H4CK3R TOOL - DARKTECH</h1>
+
+  <input type="text" id="apiKey" placeholder="Enter Admin API Key (starts with DARKTECH)">
+  <input type="email" id="targetEmail" placeholder="Victim's Email">
+  <button onclick="startHack()">INITIATE BREACH</button>
+
+  <div class="terminal" id="terminalOutput">
+    > Waiting for input...
+  </div>
+
+  <script>
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function startHack() {
+      const apiKey = document.getElementById('apiKey').value;
+      const target = document.getElementById('targetEmail').value;
+      const terminal = document.getElementById('terminalOutput');
+      terminal.innerText = "";
+
+      if (!apiKey.startsWith("DARKTECH")) {
+        terminal.innerText = "> ERROR: INVALID API KEY. ACCESS DENIED.";
+        return;
+      }
+
+      const prankMessage = "You’ve been hacked by DARKTECH!";
+
+      const steps = [
+        `> Connecting to ${target} mail server...`,
+        "> Bypassing 2FA...",
+        "> Injecting spoofed headers...",
+        "> Extracting mailbox contents...",
+        `> Sending prank payload to ${target}...`,
+        `> Message Sent: "${prankMessage}"`,
+        "> Covering tracks...",
+        "> Disconnecting from server...",
+        "> Mission Complete. Email breached successfully."
+      ];
+
+      for (let step of steps) {
+        terminal.innerText += step + "\n";
+        await delay(1000 + Math.random() * 500);
+        terminal.scrollTop = terminal.scrollHeight;
+      }
+    }
+  </script>
+
+</body>
+</html>
